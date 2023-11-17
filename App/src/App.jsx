@@ -71,10 +71,7 @@ function App() {
           </div>
 
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-12'>
-
             {loading ?   <Loading />:countries.map((country,index) => ( <Card key={index} country={country} /> ))}
-
-            {/* {countries.map((country,index) => ( <Card key={index} country={country} /> ))} */}
           </div>
         </main>
       </div>
