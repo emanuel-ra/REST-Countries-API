@@ -1,5 +1,5 @@
 
-export const regions = [
+export const REGIONS = [
     'Africa' ,
     'America' ,
     'Asia' ,
