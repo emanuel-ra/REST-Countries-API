@@ -25,3 +25,15 @@ export const  Get = async({search}) =>{
         throw new Error(e)
     }
 }
+
+export const  GetCounty = async({name}) =>{
+
+    try{
+        let endPoint = `name/${name}?fullText=true`
+
+        const response = await fetch(`${API}/${endPoint}`);
+        return await response.json()
+    }catch(e){        
+        throw new Error(e)
+    }
+}

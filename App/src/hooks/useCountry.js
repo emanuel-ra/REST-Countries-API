@@ -17,7 +17,8 @@ const useCountry = ({search}) => {
             const result = await Get({search});
             setCountries(result)
         }catch(e){
-            const data = initialData.filter( element => element.name.includes(search) )
+            // If the service is down or something went wrong filter the mook data to show some countries
+            const data = initialData.filter( element => element.name.toLowerCase().trim().includes(search.toLowerCase().trim()) )
             setCountries(data)            
         }finally{
             setLoading(false)

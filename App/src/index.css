@@ -46,7 +46,7 @@
     @apply bg-white placeholder:text-zinc-900
   }
   .theme-input-dark{
-    @apply bg-theme-dark placeholder:text-white 
+    @apply bg-theme-dark text-white placeholder:text-white 
   }
   
   .dropdown{
