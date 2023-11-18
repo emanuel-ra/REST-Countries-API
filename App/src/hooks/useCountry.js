@@ -17,7 +17,8 @@ const useCountry = ({search}) => {
             const result = await Get({search});
             setCountries(result)
         }catch(e){
-            console.log(e)
+            const data = initialData.filter( element => element.name.includes(search) )
+            setCountries(data)            
         }finally{
             setLoading(false)
         }

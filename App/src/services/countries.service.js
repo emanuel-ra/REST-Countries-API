@@ -13,7 +13,6 @@ export const  Get = async({search}) =>{
 
         const response = await fetch(`${API}/${endPoint}`);
         const result = await response.json()
-        //console.log(result.map(e => e.capital));
 
         return result?.map( country => ({
             name: country.name.official ,
