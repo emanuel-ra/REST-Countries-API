@@ -35,7 +35,7 @@ function Countries() {
 
   return (
     <>
-      <div className="w-full flex flex-col md:flex-row justify-between">
+      <div className="w-full flex flex-col gap-2 md:flex-row justify-between">
         <div
           className={`input ${
             !dark ? "theme-input-ligth" : "theme-input-dark"
