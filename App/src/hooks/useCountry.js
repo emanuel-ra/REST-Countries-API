@@ -4,6 +4,7 @@ import initialData from "../mooks/data.json"
 const useCountry = ({search}) => {
     const [countries,setCountries] = useState(initialData)
     const [loading,setLoading] = useState(false)
+    const [error,setError] = useState(false)
     
 
     const prevSearch = useRef(search)
@@ -18,7 +19,9 @@ const useCountry = ({search}) => {
             setCountries(result)
         }catch(e){
             // If the service is down or something went wrong filter the mook data to show some countries
+            // * the mook data structure could be different of the api request and some value didn't show
             const data = initialData.filter( element => element.name.toLowerCase().trim().includes(search.toLowerCase().trim()) )
+            setError(true)
             setCountries(data)            
         }finally{
             setLoading(false)
@@ -26,7 +29,7 @@ const useCountry = ({search}) => {
         
     },[])
 
-    return {getCountries,countries, loading}
+    return {getCountries,countries, loading,error}
 }
 
 export default useCountry

@@ -11,7 +11,7 @@ function Country() {
   let { n } = useParams();
   // const [search, setSearch] = useState(n);
 
-  const { getCountries, countries, loading } = useCountry({ n });
+  const { getCountries, countries, loading,error } = useCountry({ n });
 
   useEffect(() => {
     getCountries({ search: n });
@@ -30,10 +30,10 @@ function Country() {
     currencies,
     borders,
   } = countries[0];
+  
+  const currence = currencies ? Object.values(currencies)[0].name:'';
 
-  const currence = Object.values(currencies)[0].name;
-
-  const langs = Object.values(languages).join(", ");
+  let langs = !error ? Object.values(languages).join(", "):'';
 
   return (
     <>
@@ -64,7 +64,7 @@ function Country() {
             <h1 className="font-bold text-2xl w-full p-0">{name}</h1>
 
             <div className="flex flex-col lg:flex-row justify-between ">
-              <blockquote className="flex flex-col gap-2">
+              <blockquote className="flex flex-col w-1/2 gap-2">
                 <span className="flex gap-1">
                   <b>Native Name:</b>
                   {nativeName}
@@ -87,7 +87,7 @@ function Country() {
                 </span>
               </blockquote>
 
-              <blockquote className="flex mt-10 lg:mt-0 flex-col gap-2">
+              <blockquote className="flex mt-10  w-1/2 lg:mt-0 flex-col gap-2">
                 <span className="flex gap-1">
                   <b>Top Level Domain:</b>
                   {topLevelDomain}
@@ -105,12 +105,11 @@ function Country() {
 
             <div className="mt-10 w-full flex flex-wrap gap-2">
               <b>Border Countries:</b>{" "}
-              {borders.map((border, index) => (
+              {borders?.map((border, index) => (
                 <NavLink
                   key={index}
                   to={`#`}
-                  className={`btn px-3 py-1
-             ${dark ? "btn-dark" : "btn-ligth"} `}
+                  className={`btn px-3 py-1 ${dark ? "btn-dark" : "btn-ligth"} `}
                 >
                   {border}
                 </NavLink>
