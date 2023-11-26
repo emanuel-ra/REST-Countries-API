@@ -1,10 +1,11 @@
 import { useParams } from "react-router";
 import { ArrowLongLeft } from "../components/icons/HeroIcons";
 import { useMode } from "../hooks/useMode";
-import { NavLink } from "react-router-dom";
+import { Link,NavLink  } from "react-router-dom";
 import useCountry from "../hooks/useCountry";
 import Loading from "../components/Loading";
 import { useEffect, useState } from "react";
+import Error404 from "../components/Error404";
 
 function Country() {
   const { dark } = useMode();
@@ -12,10 +13,15 @@ function Country() {
   // const [search, setSearch] = useState(n);
 
   const { getCountries, countries, loading,error } = useCountry({ n });
-
+  
   useEffect(() => {
     getCountries({ search: n });
   }, []);
+
+
+  if(!countries.length)
+    return <Error404 />
+
 
   const {
     flags,
@@ -106,13 +112,11 @@ function Country() {
             <div className="mt-10 w-full flex flex-wrap gap-2">
               <b>Border Countries:</b>{" "}
               {borders?.map((border, index) => (
-                <NavLink
-                  key={index}
-                  to={`#`}
+                <a key={index} href={`/country/${border}`}                 
                   className={`btn px-3 py-1 ${dark ? "btn-dark" : "btn-ligth"} `}
                 >
                   {border}
-                </NavLink>
+                </a>
               ))}
             </div>
           </div>

@@ -6,7 +6,7 @@ export const  Get = async({search}) =>{
     try{
         let endPoint = ''
         if(search)
-            endPoint += `name/${search}?fullText=true`
+            endPoint += `name/${search}`
 
         if(!REGIONS.every(region => region.localeCompare(search)))
             endPoint = `region/${search}`
