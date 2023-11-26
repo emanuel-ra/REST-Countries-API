@@ -71,46 +71,38 @@ function Country() {
 
             <div className="flex flex-col lg:flex-row justify-between ">
               <blockquote className="flex flex-col w-1/2 gap-2">
-                <span className="flex gap-1">
-                  <b>Native Name:</b>
-                  {nativeName}
+                <span>
+                  <b>Native Name:</b> {nativeName}
                 </span>
-                <span className="flex gap-1">
-                  <b>Population:</b>
-                  {population}
+                <span>
+                  <b>Population:</b> {population}
                 </span>
-                <span className="flex gap-1">
-                  <b>Region:</b>
-                  {region}
+                <span>
+                  <b>Region:</b> {region}
                 </span>
-                <span className="flex gap-1">
-                  <b>Sub Region:</b>
-                  {subregion}
+                <span>
+                  <b>Sub Region:</b> {subregion}
                 </span>
-                <span className="flex gap-1">
-                  <b>Capital:</b>
-                  {capital}
+                <span>
+                  <b>Capital:</b> {capital}
                 </span>
               </blockquote>
 
               <blockquote className="flex mt-10  w-1/2 lg:mt-0 flex-col gap-2">
-                <span className="flex gap-1">
-                  <b>Top Level Domain:</b>
-                  {topLevelDomain}
+                <span>
+                  <b>Top Level Domain:</b> {topLevelDomain}
                 </span>
-                <span className="flex gap-1">
-                  <b>Currencies:</b>
-                  {currence}
+                <span>
+                  <b>Currencies:</b> {currence}
                 </span>
-                <span className="flex flex-wrap gap-1">
-                  <b>Languages:</b>
-                  {langs}
+                <span>
+                  <b>Languages:</b> {langs}
                 </span>
               </blockquote>
             </div>
 
             <div className="mt-10 w-full flex flex-wrap gap-2">
-              <b>Border Countries:</b>{" "}
+              <b>Border Countries:</b>
               {borders?.map((border, index) => (
                 <a key={index} href={`/country/${border}`}                 
                   className={`btn px-3 py-1 ${dark ? "btn-dark" : "btn-ligth"} `}
