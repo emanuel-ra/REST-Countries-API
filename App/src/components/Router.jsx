@@ -3,6 +3,7 @@ import { Layout } from "./Layout";
 import Countries from "../pages/Countries";
 import Country from "../pages/Country";
 import { GetCounty } from "../services/countries.service";
+import Error404 from "./Error404";
 
 function Router() {
   const router = createBrowserRouter([
@@ -17,7 +18,8 @@ function Router() {
             {
                 path:'/country/:n' ,                
                 element: <Country />
-            }
+            },
+            { path: "*", element: <Error404 /> },
         ]
     }
   ]);

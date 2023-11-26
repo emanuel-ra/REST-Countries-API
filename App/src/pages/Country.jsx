@@ -16,7 +16,7 @@ function Country() {
   
   useEffect(() => {
     getCountries({ search: n });
-  }, []);
+  }, [n]);
 
 
   if(!countries.length)
@@ -72,7 +72,7 @@ function Country() {
             <div className="flex flex-col lg:flex-row justify-between ">
               <blockquote className="flex flex-col w-1/2 gap-2">
                 <span>
-                  <b>Native Name:</b> {nativeName}
+                  <b>Native Name:</b> {nativeName ? nativeName:name}
                 </span>
                 <span>
                   <b>Population:</b> {population}
@@ -104,11 +104,11 @@ function Country() {
             <div className="mt-10 w-full flex flex-wrap gap-2">
               <b>Border Countries:</b>
               {borders?.map((border, index) => (
-                <a key={index} href={`/country/${border}`}                 
+                <Link key={index} to={`/country/${border}`}           
                   className={`btn px-3 py-1 ${dark ? "btn-dark" : "btn-ligth"} `}
                 >
                   {border}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
