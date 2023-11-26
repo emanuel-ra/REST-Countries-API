@@ -19,6 +19,9 @@
   html{
     @apply font-nunito-sans 
   }
+  .wrapper{
+    @apply flex justify-center
+  }
   .header{
     @apply items-center flex min-h-[80px] justify-between px-10 shadow-lg
   }
@@ -81,6 +84,15 @@
   }
   .card-ligth{
     @apply bg-theme-dark text-theme-dark 
+  }
+  .btn {
+    @apply flex  shadow-lg rounded-md font-semibold animate-fade-down animate-ease-in-out
+  }
+  .btn-dark{
+    @apply text-white bg-theme-dark hover:opacity-80
+  }
+  .btn-ligth{
+    @apply text-theme-light bg-white hover:opacity-80
   }
   #app {
     display: grid;

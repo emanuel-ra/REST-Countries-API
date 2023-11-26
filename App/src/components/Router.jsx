@@ -15,7 +15,7 @@ function Router() {
                 element: <Countries />,
             },
             {
-                path:'/country' ,                
+                path:'/country/:n' ,                
                 element: <Country />
             }
         ]

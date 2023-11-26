@@ -94,7 +94,7 @@ function Countries() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-12 transition-all ease-in-out delay-150">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 transition-all ease-in-out delay-150">
         {loading ? (
           <Loading />
         ) : (
@@ -106,7 +106,7 @@ function Countries() {
                 .includes(searchText.toLowerCase().trim())
             )
             .map((country, index) => (
-                <Link key={index} to={`/country`} state={{ country }}>
+                <Link key={index} to={`/country/${country.name}`}>
                     <Card country={country} />
                 </Link>
             ))

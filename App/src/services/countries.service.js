@@ -13,13 +13,17 @@ export const  Get = async({search}) =>{
 
         const response = await fetch(`${API}/${endPoint}`);
         const result = await response.json()
-
         return result?.map( country => ({
             name: country.name.official ,
             population: country.population ,
             region: country.region ,
             capital: country.region !== "Asia" ? country.capital[0]:'' ,            
-            flags: country.flags
+            flags: country.flags ,
+            subregion : country.subregion ,
+            topLevelDomain : country.tld ,
+            languages : country.languages ,
+            currencies : country.currencies ,
+            borders : country.borders ,
         }))
     }catch(e){        
         throw new Error(e)

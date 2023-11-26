@@ -7,7 +7,7 @@ export const Layout = () => {
     <>
       <div
         id="app"
-        className={`relative min-h-screen flex flex-col ${
+        className={`relative min-h-screen flex flex-col min-w-[375px] lg:min-w-[1440px] max-w-[1440px] ${
           !dark ? "body-theme-ligth" : "body-theme-dark"
         } `}
       >
